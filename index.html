@@ -3,52 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIE — Альтернативная энергетика</title>
+    <title>VIE — Возобновляемые источники энергии</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             color: #1a2b3c;
             line-height: 1.6;
+            background: #f7fafc;
         }
         .hero {
             background: linear-gradient(135deg, #1e6091 0%, #168aad 100%);
             color: white;
-            padding: 80px 20px;
+            padding: 70px 20px 60px;
             text-align: center;
         }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
+        .hero h1 { font-size: 2.4rem; margin-bottom: 16px; }
         .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
+            font-size: 1.15rem;
+            max-width: 720px;
+            margin: 0 auto 28px;
             opacity: 0.95;
         }
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            background: #52b788;
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Каталог */
+        .catalog { padding: 50px 0 70px; }
+        .catalog-header { text-align: center; margin-bottom: 30px; }
+        .catalog-header h2 { color: #1a3b5d; font-size: 2rem; margin-bottom: 10px; }
+        .catalog-header p { color: #64748b; }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto 25px;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 15px;
+            border: 2px solid #cbd5e1;
+            border-radius: 10px;
+            transition: 0.2s;
+            background: white;
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: #168aad;
+            box-shadow: 0 0 0 4px rgba(22, 138, 173, 0.1);
+        }
+
+        .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .filter-btn {
+            padding: 8px 18px;
+            border: 1.5px solid #cbd5e1;
+            background: white;
+            border-radius: 24px;
+            cursor: pointer;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: #334155;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+        .filter-btn:hover {
+            border-color: #168aad;
+            color: #168aad;
+            transform: translateY(-1px);
+        }
+        .filter-btn.active {
+            background: #168aad;
             color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: 0.3s;
+            border-color: #168aad;
         }
-        .btn:hover { background: #40916c; transform: translateY(-2px); }
-        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+        .filter-btn .count {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-left: 4px;
         }
-        .feature {
-            background: #f7fafc;
-            padding: 30px;
-            border-radius: 12px;
+
+        .no-results {
+            text-align: center;
+            padding: 50px;
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        .category-section { margin-bottom: 45px; }
+        .category-title {
+            font-size: 1.35rem;
+            color: #1a3b5d;
+            margin-bottom: 5px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .category-desc {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
             border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            background: white;
         }
-        .feature h3 { color: #168aad; margin-bottom: 12px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13.5px;
+            min-width: 700px;
+        }
+        th {
+            background: #1a3b5d;
+            color: white;
+            padding: 11px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: #f8fafc; }
+        .model-cell { font-weight: 600; color: #0f172a; min-width: 200px; }
+        .features-cell { font-size: 12.5px; color: #64748b; max-width: 200px; }
+
         footer {
             background: #1a2b3c;
             color: #a0aec0;
@@ -56,35 +147,325 @@
             padding: 30px 20px;
             font-size: 0.9rem;
         }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.7rem; }
+            .hero p { font-size: 1rem; }
+            .catalog-header h2 { font-size: 1.5rem; }
+            .category-title { font-size: 1.15rem; }
+            table { font-size: 12.5px; }
+            th, td { padding: 8px 6px; }
+        }
     </style>
 </head>
 <body>
     <section class="hero">
-        <h1>☀️ Энергия будущего — сегодня</h1>
-        <p>Солнечные панели, ветрогенераторы и системы накопления энергии для дома и бизнеса.</p>
-        <a href="#contact" class="btn">Получить консультацию</a>
+        <div class="container">
+            <h1>☀️ Энергия будущего — сегодня</h1>
+            <p>Литиевые накопители, инверторы и солнечные модули для дома, бизнеса и промышленности.</p>
+        </div>
     </section>
 
-    <div class="container">
-        <h2 style="text-align:center; margin-bottom: 20px;">Наши решения</h2>
-        <div class="features">
-            <div class="feature">
-                <h3>☀️ Солнечные панели</h3>
-                <p>Монокристаллические и поликристаллические модули мощностью от 300 до 700 Вт.</p>
+    <section class="catalog">
+        <div class="container">
+            <div class="catalog-header">
+                <h2>Каталог продукции</h2>
+                <p>Найдите нужное оборудование по модели или категории</p>
             </div>
-            <div class="feature">
-                <h3>💨 Ветрогенераторы</h3>
-                <p>Бытовые и промышленные установки для автономного и комбинированного электроснабжения.</p>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" class="search-input" placeholder="🔍 Поиск по модели или характеристикам...">
             </div>
-            <div class="feature">
-                <h3>🔋 Накопители энергии</h3>
-                <p>Литиевые и гелевые АКБ, инверторы, контроллеры заряда.</p>
-            </div>
+
+            <div class="category-filters" id="categoryFilters"></div>
+
+            <div id="catalogContent"></div>
         </div>
-    </div>
+    </section>
 
     <footer>
-        © 2026 VIE. Все права защищены.
+        © 2026 VIE — Возобновляемые источники энергии. Все права защищены.
     </footer>
+
+    <script>
+    // ===================================================================
+    // ДАННЫЕ: КАТЕГОРИИ И ТОВАРЫ (без цен)
+    // ===================================================================
+    const CATEGORIES = [
+        {
+            id: "lfp-standart",
+            name: "Аккумуляторы LFP Standart",
+            desc: "LiFePO₄ Smart BMS, Bluetooth 4.0. Возможность подключения до 4 АБ последовательно/параллельно (12,8 В), до 2 АБ (25,6 В).",
+            items: [
+                { m: "LFP 12,8-100 Smart BMS 100A", u: "12,8 В", c: "100 Ач", e: "1280 Вт·ч", d: "258×166×215 мм", w: "9,9 кг", f: "Bluetooth 4.0" },
+                { m: "LFP 12,8-200 Smart BMS 100A", u: "12,8 В", c: "200 Ач", e: "2560 Вт·ч", d: "520×241×223 мм", w: "22 кг", f: "Bluetooth 4.0" },
+                { m: "LFP 25,6-50 Smart BMS 50A", u: "25,6 В", c: "50 Ач", e: "1280 Вт·ч", d: "258×166×215 мм", w: "10,2 кг", f: "Bluetooth 4.0" },
+                { m: "LFP 25,6-100 Smart BMS 100A", u: "25,6 В", c: "100 Ач", e: "2560 Вт·ч", d: "500×186×240 мм", w: "22 кг", f: "Bluetooth 4.0" },
+                { m: "LFP 25,6-200 Smart BMS 200A", u: "25,6 В", c: "200 Ач", e: "5120 Вт·ч", d: "520×269×220 мм", w: "35,8 кг", f: "Bluetooth 4.0" }
+            ]
+        },
+        {
+            id: "lfp-marine",
+            name: "Аккумуляторы LFP MARINE",
+            desc: "Активный балансир, IP68, Smart BMS с Bluetooth 4.0.",
+            items: [
+                { m: "LFP 12,8-100 MARINE", u: "12,8 В", c: "100 Ач", e: "1280 Вт·ч", d: "258×166×215 мм", w: "9,9 кг", f: "IP68, Smart BMS 100A" },
+                { m: "LFP 12,8-200 MARINE", u: "12,8 В", c: "200 Ач", e: "2560 Вт·ч", d: "522×240×223 мм", w: "22 кг", f: "IP68, Smart BMS 100A" },
+                { m: "LFP 25,6-100 MARINE", u: "25,6 В", c: "100 Ач", e: "2560 Вт·ч", d: "483×170×240 мм", w: "22 кг", f: "IP68, Smart BMS 100A" }
+            ]
+        },
+        {
+            id: "lfp-rack",
+            name: "Аккумуляторы LFP Rack 19\"",
+            desc: "Стоечные LiFePO₄ аккумуляторы для монтажа в 19-дюймовые стойки.",
+            items: [
+                { m: "LFP 51,2-100M (BMS 100A)", u: "51,2 В", c: "100 Ач", e: "5120 Вт·ч", d: "440×480×133 мм", w: "40 кг", f: "" },
+                { m: "LFP 51,2-100MA (Amphenol)", u: "51,2 В", c: "100 Ач", e: "5120 Вт·ч", d: "440×480×133 мм", w: "40 кг", f: "Тип клемм Amphenol" },
+                { m: "LFP 51,2-200M (BMS 100A)", u: "51,2 В", c: "200 Ач", e: "10240 Вт·ч", d: "440×583×228 мм", w: "80 кг", f: "" }
+            ]
+        },
+        {
+            id: "lfp-wall",
+            name: "Аккумуляторы LFP Wall Mounted",
+            desc: "Настенные LiFePO₄ аккумуляторы для домашнего и коммерческого использования.",
+            items: [
+                { m: "LFP 25,6-150W (BMS 150A)", u: "25,6 В", c: "150 Ач", e: "3840 Вт·ч", d: "445×420×147 мм", w: "28,5 кг", f: "" },
+                { m: "LFP 51,2-100W (BMS 100A)", u: "51,2 В", c: "100 Ач", e: "5120 Вт·ч", d: "445×570×150 мм", w: "45 кг", f: "" },
+                { m: "LFP 51,2-130PW (BMS 130A)", u: "51,2 В", c: "130 Ач", e: "6502 Вт·ч", d: "460×780×120 мм", w: "55 кг", f: "" },
+                { m: "LFP 51,2-150W (BMS 150A)", u: "51,2 В", c: "150 Ач", e: "7680 Вт·ч", d: "400×600×234 мм", w: "60 кг", f: "" }
+            ]
+        },
+        {
+            id: "lfp-new-rack",
+            name: "Аккумуляторы VEKTOR ENERGY NEW (Rack)",
+            desc: "Новая серия с дисплеем 3.2\", выключателем DELEX, LiFePO₄ EVE Grade A, BMS PACEEX.",
+            items: [
+                { m: "LFP 51.2-100RM (BMS 100A)", u: "51,2 В", c: "100 Ач", e: "5120 Вт·ч", d: "442×510×155 мм", w: "45 кг", f: "Дисплей 3.2\", DELEX" },
+                { m: "LFP 51.2-200RM (BMS 100A)", u: "51,2 В", c: "200 Ач", e: "10240 Вт·ч", d: "442×600×255 мм", w: "88 кг", f: "Дисплей 3.2\", DELEX" }
+            ]
+        },
+        {
+            id: "lfp-new-wall",
+            name: "Аккумуляторы VEKTOR ENERGY NEW (Wall)",
+            desc: "Настенные модели с сенсорным дисплеем 7\", LiFePO₄ EVE Grade A, BMS PACEEX.",
+            items: [
+                { m: "LFP 51.2-100RW (BMS 100A)", u: "51,2 В", c: "100 Ач", e: "5120 Вт·ч", d: "650×384×142 мм", w: "45 кг", f: "Сенсорный дисплей 7\"" },
+                { m: "LFP 51.2-200RW (BMS 150A)", u: "51,2 В", c: "200 Ач", e: "10240 Вт·ч", d: "655×450×265 мм", w: "88 кг", f: "Сенсорный дисплей 7\"" },
+                { m: "LFP 51.2-324RW (BMS 200A)", u: "51,2 В", c: "324 Ач", e: "16588 Вт·ч", d: "710×460×260 мм", w: "120 кг", f: "Сенсорный дисплей 7\"" }
+            ]
+        },
+        {
+            id: "lfp-high-voltage",
+            name: "Аккумуляторы High Voltage 614 В",
+            desc: "Высоковольтная система 614 В / 220 Ач, 135 кВт·ч. LiFePO₄ EVE Grade A, BMS PACEEX 150 А, DELEX 250 А, активное охлаждение.",
+            items: [
+                { m: "HIGH VOLTAGE LFP 614-220 (135 кВт·ч)", u: "614 В", c: "220 Ач", e: "135080 Вт·ч", d: "Зависит от конфигурации", w: "—", f: "Стоечный шкаф, кабели в комплекте" }
+            ]
+        },
+        {
+            id: "deye-hybrid",
+            name: "Инверторы Deye — гибридные",
+            desc: "Гибридные солнечные инверторы Deye серии SUN-SG.",
+            items: [
+                { m: "Deye SUN-3K-SG04LP1-24-EU-SM1", u: "24 В", c: "3 кВт", e: "1 фаза", d: "376×470×241 мм", w: "17,6 кг", f: "1 MPPT, PV до 4800 Вт, 500 В" },
+                { m: "Deye SUN-5K-SG05LP1-EU-SM2-P", u: "48 В", c: "5 кВт", e: "1 фаза", d: "366×590×237 мм", w: "26,8 кг", f: "2 MPPT, PV до 8000 Вт, 500 В" },
+                { m: "Deye SUN-6K-SG05LP1-EU-SM2-P", u: "48 В", c: "6 кВт", e: "1 фаза", d: "366×590×237 мм", w: "26,8 кг", f: "2 MPPT, PV до 9600 Вт, 500 В" },
+                { m: "Deye SUN-8K-SG05LP1-EU-SM2-P", u: "48 В", c: "8 кВт", e: "1 фаза", d: "366×590×237 мм", w: "26,8 кг", f: "2 MPPT, PV до 12800 Вт, 500 В" },
+                { m: "Deye SUN-12K-SG02LP1-EU-AM3-P", u: "48 В", c: "12 кВт", e: "1 фаза", d: "420×670×233 мм", w: "35,6 кг", f: "3 MPPT, PV до 19200 Вт, 500 В" },
+                { m: "Deye SUN-16K-SG01LP1-EU", u: "48 В", c: "16 кВт", e: "1 фаза", d: "464×763×282 мм", w: "52 кг", f: "3 MPPT, PV до 25600 Вт, 500 В" },
+                { m: "Deye SUN-12K-SG05LP3-EU-SM2", u: "48 В", c: "12 кВт", e: "3 фазы", d: "386×660×250 мм", w: "35,2 кг", f: "2 MPPT, PV до 19200 Вт, 800 В" },
+                { m: "Deye SUN-15K-SG05LP3-EU-SM2", u: "48 В", c: "15 кВт", e: "3 фазы", d: "456×750×269 мм", w: "51,9 кг", f: "2 MPPT, PV до 24000 Вт, 800 В" },
+                { m: "Deye SUN-20K-SG05LP3-EU-SM2", u: "48 В", c: "20 кВт", e: "3 фазы", d: "456×750×269 мм", w: "51,9 кг", f: "2 MPPT, PV до 32000 Вт, 800 В" },
+                { m: "Deye SUN-25K-SG01HP3-EU-AM2", u: "160–700 В", c: "25 кВт", e: "3 фазы", d: "422×658×254 мм", w: "30,5 кг", f: "2 MPPT, PV до 40000 Вт, 1000 В" },
+                { m: "Deye SUN-50K-SG01HP3-EU-BM4", u: "160–800 В", c: "50 кВт", e: "3 фазы", d: "527×894×294 мм", w: "80 кг", f: "4 MPPT, PV до 80000 Вт, 1000 В" },
+                { m: "Deye SUN-80K-SG02HP3-EU-EM6", u: "160–1000 В", c: "80 кВт", e: "3 фазы", d: "606×927×314 мм", w: "105 кг", f: "6 MPPT, PV до 128000 Вт, 1000 В" },
+                { m: "Deye SUN-100K-SG02HP3-EU-GM10", u: "160–1000 В", c: "100 кВт", e: "3 фазы", d: "734×1091×344 мм", w: "162 кг", f: "10 MPPT, PV до 160000 Вт, 1000 В" },
+                { m: "Deye SUN-125K-SG02HP3-EU-GM10", u: "160–1000 В", c: "125 кВт", e: "3 фазы", d: "734×1091×344 мм", w: "162 кг", f: "10 MPPT, PV до 200000 Вт, 1000 В" }
+            ]
+        },
+        {
+            id: "deye-grid",
+            name: "Инверторы Deye — сетевые",
+            desc: "Сетевые солнечные инверторы Deye серии SUN-G.",
+            items: [
+                { m: "Deye SUN-3K-G04P1-EU-AM1", u: "—", c: "3 кВт", e: "1 фаза", d: "280×310×184 мм", w: "6,4 кг", f: "1 MPPT, PV до 3900 Вт" },
+                { m: "Deye SUN-5K-G05P1-EU-AM2", u: "—", c: "5 кВт", e: "1 фаза", d: "305×280×180 мм", w: "7,7 кг", f: "2 MPPT, PV до 7500 Вт" },
+                { m: "Deye SUN-10K-G06P3-EU-BM2-P1", u: "—", c: "10 кВт", e: "3 фазы", d: "283×525×178 мм", w: "11,5 кг", f: "2 MPPT, PV до 15000 Вт" },
+                { m: "Deye SUN-15K-G06P3-EU-BM2-P1", u: "—", c: "15 кВт", e: "3 фазы", d: "283×525×188 мм", w: "12 кг", f: "2 MPPT, PV до 22500 Вт" },
+                { m: "Deye SUN-20K-G05", u: "—", c: "20 кВт", e: "3 фазы", d: "362×527×220 мм", w: "20 кг", f: "2 MPPT, PV до 26000 Вт" },
+                { m: "Deye SUN-25K-G05", u: "—", c: "25 кВт", e: "3 фазы", d: "362×527×220 мм", w: "20 кг", f: "2 MPPT, PV до 32500 Вт" },
+                { m: "Deye SUN-30K-G04", u: "—", c: "30 кВт", e: "3 фазы", d: "330×572×206 мм", w: "28,7 кг", f: "2 MPPT, PV до 45000 Вт" },
+                { m: "Deye SUN-50K-G04", u: "—", c: "50 кВт", e: "3 фазы", d: "434×570×243 мм", w: "39 кг", f: "4 MPPT, PV до 65000 Вт" },
+                { m: "Deye SUN-100K-G03", u: "—", c: "100 кВт", e: "3 фазы", d: "824×516×313 мм", w: "81 кг", f: "6 MPPT, PV до 150000 Вт" },
+                { m: "Deye SUN-130K-G01P3-EU-AM8", u: "—", c: "130 кВт", e: "3 фазы", d: "1006×516×326 мм", w: "103 кг", f: "8 MPPT, PV до 195000 Вт" }
+            ]
+        },
+        {
+            id: "deye-accessories",
+            name: "Комплектующие Deye",
+            desc: "Дополнительное оборудование для инверторов Deye.",
+            items: [
+                { m: "Ограничитель экспорта SDM630MCT ETL с CT (200А/5А)", u: "—", c: "—", e: "—", d: "—", w: "—", f: "Совместим с сетевыми и гибридными инверторами" },
+                { m: "Deye Stick Logger Wi-Fi (LSW-3)", u: "—", c: "—", e: "—", d: "—", w: "—", f: "Wi-Fi мониторинг Solarman" },
+                { m: "Deye Stick Logger LAN (LSE-3)", u: "—", c: "—", e: "—", d: "—", w: "—", f: "LAN мониторинг Solarman" }
+            ]
+        },
+        {
+            id: "must-batteries",
+            name: "Аккумуляторы MUST",
+            desc: "Литиевые накопители MUST серий LP15 и LP16.",
+            items: [
+                { m: "MUST LP15-12100", u: "12,8 В", c: "100 Ач", e: "1280 Вт·ч", d: "218×339×185 мм", w: "12 кг", f: "" },
+                { m: "MUST LP15-12200", u: "12,8 В", c: "200 Ач", e: "2560 Вт·ч", d: "243×502×186 мм", w: "21 кг", f: "" },
+                { m: "MUST LP15-24100", u: "25,6 В", c: "100 Ач", e: "2560 Вт·ч", d: "243×502×186 мм", w: "20 кг", f: "" },
+                { m: "MUST LP15-24200", u: "25,6 В", c: "200 Ач", e: "5120 Вт·ч", d: "218×522×240 мм", w: "37 кг", f: "" },
+                { m: "MUST LP16-24200 Wall Mount", u: "25,6 В", c: "200 Ач", e: "5120 Вт·ч", d: "250×442×486,5 мм", w: "44 кг", f: "Настенный монтаж" },
+                { m: "MUST LP16-48100 Wall Mount", u: "51,2 В", c: "100 Ач", e: "5120 Вт·ч", d: "177×442×625,5 мм", w: "45 кг", f: "Настенный монтаж" },
+                { m: "MUST LP16-48200 Wall Mount", u: "51,2 В", c: "200 Ач", e: "10240 Вт·ч", d: "250×442×686,5 мм", w: "80 кг", f: "Настенный монтаж" }
+            ]
+        },
+        {
+            id: "must-ups",
+            name: "Инверторы MUST — силовые (ИБП)",
+            desc: "Низкочастотные ИБП MUST серий EP21 и EP30.",
+            items: [
+                { m: "MUST EP21-0312 PRO", u: "12 В", c: "300 Вт", e: "Line interactive", d: "300×319×132 мм", w: "6 кг", f: "Ток заряда 5–10 А" },
+                { m: "MUST EP21-0612 PRO", u: "12 В", c: "600 Вт", e: "Line interactive", d: "300×319×132 мм", w: "10,6 кг", f: "Ток заряда 5–20 А" },
+                { m: "MUST EP21-1012 PRO", u: "12 В", c: "1000 Вт", e: "Line interactive", d: "300×319×132 мм", w: "13,2 кг", f: "Ток заряда 5–30 А" },
+                { m: "MUST EP30-3024 PLUS", u: "24 В", c: "3000 Вт", e: "Низкочастотный", d: "303×493×200 мм", w: "20,3 кг", f: "Ток заряда 10–40 А" },
+                { m: "MUST EP30-6048 PLUS", u: "48 В", c: "6000 Вт", e: "Низкочастотный", d: "305×531×202 мм", w: "34,5 кг", f: "Ток заряда 10–40 А" }
+            ]
+        },
+        {
+            id: "must-solar",
+            name: "Инверторы MUST — солнечные",
+            desc: "Солнечные инверторы MUST серий PV18 и PV19.",
+            items: [
+                { m: "MUST PV18-1512 VPM II", u: "12 В", c: "1500 Вт", e: "MPPT", d: "255×318×110 мм", w: "5,5 кг", f: "PV до 720 Вт, 145 В" },
+                { m: "MUST PV18-3624 PRO", u: "24 В", c: "3600 Вт", e: "MPPT 18А", d: "318×454×122 мм", w: "7,4 кг", f: "PV до 4000 Вт, 400 В" },
+                { m: "MUST PV19-4224 EXP", u: "24 В", c: "4200 Вт", e: "MPPT 18А", d: "318×424×120 мм", w: "7,1 кг", f: "PV до 5500 Вт, 450 В, параллельное подключение" }
+            ]
+        },
+        {
+            id: "must-hybrid",
+            name: "Инверторы MUST — гибридные",
+            desc: "Гибридные солнечные инверторы MUST серий PH19 и PH11.",
+            items: [
+                { m: "MUST PH19-6048 EXP II", u: "48 В", c: "6000 Вт", e: "MPPT 32А", d: "309×505×147 мм", w: "12,9 кг", f: "PV до 7800 Вт, 500 В, отдача в сеть" },
+                { m: "MUST PH19-10048 EXP", u: "48 В", c: "10000 Вт", e: "2×MPPT 27+27А", d: "425×527×145 мм", w: "18 кг", f: "PV до 10000 Вт, 500 В, отдача в сеть" },
+                { m: "MUST PH11-15KL3-EU", u: "48 В", c: "15000 Вт", e: "2×MPPT 32+16А", d: "446×692×260 мм", w: "38 кг", f: "3 фазы, PV до 19500 Вт, 800 В, порт генератора" }
+            ]
+        },
+        {
+            id: "must-accessories",
+            name: "Комплектующие MUST",
+            desc: "Дополнительное оборудование MUST.",
+            items: [
+                { m: "MUST Stick Logger LSW-Micro (USB)", u: "—", c: "—", e: "—", d: "—", w: "—", f: "Wi-Fi мониторинг Solarman, для PV1800/EP1800/EP3000" },
+                { m: "Мобильная платформа для LP16-48100 (до 5 шт)", u: "—", c: "—", e: "—", d: "—", w: "—", f: "" }
+            ]
+        },
+        {
+            id: "solar-modules",
+            name: "Солнечные модули Tongwei",
+            desc: "N-type TOPCon монокристаллические модули Tongwei.",
+            items: [
+                { m: "Tongwei TNC2.0 TWMNH-48HW470", u: "—", c: "470 Вт", e: "КПД 23,5%", d: "1762×1134×30 мм", w: "23,7 кг", f: "N-type TOPCon, Half-cell, чёрная рамка" },
+                { m: "Tongwei TNC3.0 TWMNH-66QD650", u: "—", c: "650 Вт", e: "КПД 24,1%", d: "2382×1134×30 мм", w: "32,7 кг", f: "N-type TOPCon, Quarter-Cell, двусторонняя генерация" }
+            ]
+        }
+    ];
+
+    // ===================================================================
+    // РЕНДЕРИНГ
+    // ===================================================================
+    const filtersEl = document.getElementById('categoryFilters');
+    const contentEl = document.getElementById('catalogContent');
+    const searchInput = document.getElementById('searchInput');
+
+    let activeCategory = 'all';
+
+    function renderFilters() {
+        const allCount = CATEGORIES.reduce((sum, c) => sum + c.items.length, 0);
+        let html = `<button class="filter-btn active" data-cat="all">Все<span class="count">${allCount}</span></button>`;
+        CATEGORIES.forEach(cat => {
+            html += `<button class="filter-btn" data-cat="${cat.id}">${cat.name}<span class="count">${cat.items.length}</span></button>`;
+        });
+        filtersEl.innerHTML = html;
+
+        filtersEl.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                activeCategory = btn.dataset.cat;
+                filtersEl.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderCatalog();
+            });
+        });
+    }
+
+    function renderCatalog() {
+        const query = searchInput.value.toLowerCase().trim();
+        let html = '';
+        let totalShown = 0;
+
+        CATEGORIES.forEach(cat => {
+            if (activeCategory !== 'all' && activeCategory !== cat.id) return;
+
+            const filteredItems = cat.items.filter(item => {
+                if (!query) return true;
+                const searchText = [item.m, item.u, item.c, item.e, item.f, item.d].join(' ').toLowerCase();
+                return searchText.includes(query);
+            });
+
+            if (filteredItems.length === 0) return;
+
+            totalShown += filteredItems.length;
+
+            html += `<div class="category-section">
+                <h3 class="category-title">${cat.name}</h3>
+                ${cat.desc ? `<p class="category-desc">${cat.desc}</p>` : ''}
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Модель</th>
+                                <th>Напряжение</th>
+                                <th>Ёмкость / мощность</th>
+                                <th>Энергоёмкость / КПД</th>
+                                <th>Габариты</th>
+                                <th>Вес</th>
+                                <th>Особенности</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
+
+            filteredItems.forEach(it => {
+                html += `<tr>
+                    <td class="model-cell">${it.m}</td>
+                    <td>${it.u}</td>
+                    <td>${it.c}</td>
+                    <td>${it.e}</td>
+                    <td>${it.d}</td>
+                    <td>${it.w}</td>
+                    <td class="features-cell">${it.f}</td>
+                </tr>`;
+            });
+
+            html += `</tbody></table></div></div>`;
+        });
+
+        if (totalShown === 0) {
+            html = `<div class="no-results">🔍 Ничего не найдено. Попробуйте изменить запрос или выбрать другую категорию.</div>`;
+        }
+
+        contentEl.innerHTML = html;
+    }
+
+    searchInput.addEventListener('input', renderCatalog);
+
+    // Запуск
+    renderFilters();
+    renderCatalog();
+    </script>
 </body>
 </html>
