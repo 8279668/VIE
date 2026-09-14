@@ -1,1 +1,1648 @@
-placeholder
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VEKTOR ENERGY — Солнечная энергетика</title>
+<meta name="description" content="Литиевые аккумуляторы, солнечные панели, гибридные и сетевые инверторы. VEKTOR ENERGY.">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #1a2b3c;
+  line-height: 1.6;
+  background: #f7fafc;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.98);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  backdrop-filter: blur(8px);
+}
+.header-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #1a3b5d;
+  text-decoration: none;
+}
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #1e6091, #168aad);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 800;
+}
+.nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.nav a {
+  text-decoration: none;
+  color: #334155;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav a:hover { color: #168aad; }
+@media (max-width: 860px) {
+  .header-inner { flex-direction: column; }
+  .nav { justify-content: center; gap: 14px; font-size: 0.85rem; }
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #1e6091 0%, #168aad 100%);
+  color: white;
+  padding: 90px 20px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 60%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: 2.6rem;
+  margin-bottom: 18px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.hero p {
+  font-size: 1.15rem;
+  max-width: 720px;
+  margin: 0 auto 30px;
+  opacity: 0.95;
+}
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+@media (max-width: 640px) {
+  .hero { padding: 60px 16px 50px; }
+  .hero h1 { font-size: 1.9rem; }
+  .hero p { font-size: 1rem; }
+}
+
+/* Container */
+.container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+
+/* Sections */
+.section { padding: 70px 0; }
+.section-header { text-align: center; margin-bottom: 45px; }
+.section-header h2 {
+  color: #1a3b5d;
+  font-size: 2.1rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.section-header p { color: #64748b; font-size: 1.02rem; max-width: 700px; margin: 0 auto; }
+.section-divider {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #1e6091, #f0b429);
+  border-radius: 2px;
+  margin: 14px auto 0;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+/* Card */
+.card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.card-img {
+  position: relative;
+  height: 190px;
+  background: linear-gradient(135deg, #eef4f9, #e0eaf3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.card-img .ph-icon {
+  width: 80px;
+  height: 80px;
+  opacity: 0.35;
+  color: #1e6091;
+}
+.card-img.has-photo .ph-icon { display: none; }
+.card-img:not(.has-photo) img { display: none; }
+
+.card-body {
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.card-cat {
+  display: inline-block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+  color: #168aad;
+  margin-bottom: 8px;
+}
+.card-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #1a3b5d;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+.card-specs {
+  list-style: none;
+  margin-bottom: 14px;
+  flex: 1;
+}
+.card-specs li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px 0;
+  font-size: 0.88rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+.card-specs li:last-child { border-bottom: none; }
+.card-specs .spec-label { color: #64748b; }
+.card-specs .spec-value { color: #1a2b3c; font-weight: 600; text-align: right; }
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #eef2f7;
+}
+.card-price {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #1e6091;
+}
+.card-price small { font-size: 0.72rem; font-weight: 500; color: #94a3b8; display: block; }
+.card-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.badge-instock { background: #dcfce7; color: #166534; }
+.badge-transit { background: #fef3c7; color: #92400e; }
+.badge-order { background: #e0e7ff; color: #3730a3; }
+
+/* Houses section */
+.houses {
+  background: linear-gradient(180deg, #f7fafc 0%, #edf4fa 100%);
+}
+.house-card .card-img { height: 240px; }
+
+/* Footer */
+.footer {
+  background: #1a3b5d;
+  color: #cbd5e1;
+  padding: 40px 20px 30px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+.footer-brand {
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.footer-note { opacity: 0.7; margin-top: 8px; font-size: 0.85rem; }
+
+/* Placeholder for no-photo cards */
+.no-photo-note {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  background: rgba(255,255,255,0.8);
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-icon">V</span>
+      VEKTOR ENERGY
+    </a>
+    <nav class="nav">
+      <a href="#batteries">Батареи</a>
+      <a href="#panels">Солнечные панели</a>
+      <a href="#hybrid">Гибридные инверторы</a>
+      <a href="#grid">Сетевые инверторы</a>
+      <a href="#houses">Примеры установки</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Солнечная энергетика для дома и бизнеса</h1>
+  <p>Литиевые накопители, солнечные панели и инверторы ведущих производителей. Готовые решения под ключ.</p>
+  <div class="hero-badges">
+    <span class="badge">⚡ LiFePO₄ EVE Grade A</span>
+    <span class="badge">🛡 Гарантия от производителя</span>
+    <span class="badge">🚚 Доставка по России</span>
+  </div>
+</section>
+
+<!-- БАТАРЕИ -->
+<section class="section" id="batteries">
+  <div class="container">
+    <div class="section-header">
+      <h2>Литиевые аккумуляторы LFP</h2>
+      <p>Накопители LiFePO₄ с Smart BMS и Bluetooth. Standart, MARINE, Rack 19" и Wall Mounted исполнения.</p>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lfp-12.8-100-smart.jpg" alt="LFP 12,8-100 Smart BMS">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Standart</span>
+          <h3 class="card-title">LFP 12,8-100 Smart BMS 100A</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">12,8 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">100 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">1280 Вт·ч</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">258×166×215 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">9,9 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">33 300 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lfp-12.8-200-smart.jpg" alt="LFP 12,8-200 Smart BMS">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Standart</span>
+          <h3 class="card-title">LFP 12,8-200 Smart BMS 100A</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">12,8 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">200 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">2560 Вт·ч</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">520×241×223 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">22 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">62 900 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lfp-25.6-50-smart.jpg" alt="LFP 25,6-50 Smart BMS">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Standart</span>
+          <h3 class="card-title">LFP 25,6-50 Smart BMS 50A</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">25,6 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">50 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">1280 Вт·ч</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">258×166×215 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">10,2 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">38 100 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lfp-25.6-100-smart.jpg" alt="LFP 25,6-100 Smart BMS">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Standart</span>
+          <h3 class="card-title">LFP 25,6-100 Smart BMS 100A</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">25,6 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">100 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">2560 Вт·ч</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">500×186×240 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">22 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">65 300 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lfp-25.6-200-smart.jpg" alt="LFP 25,6-200 Smart BMS">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Standart</span>
+          <h3 class="card-title">LFP 25,6-200 Smart BMS 200A</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">25,6 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">200 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">5120 Вт·ч</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">520×269×220 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">35,8 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">129 100 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lfp-12.8-100-marine.jpg" alt="LFP 12,8-100 MARINE">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">MARINE Series</span>
+          <h3 class="card-title">LFP 12,8-100 MARINE Smart BMS</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">12,8 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">100 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">1280 Вт·ч</span></li>
+            <li><span class="spec-label">Защита</span><span class="spec-value">IP68</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">9,9 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">38 100 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lfp-12.8-200-marine.jpg" alt="LFP 12,8-200 MARINE">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">MARINE Series</span>
+          <h3 class="card-title">LFP 12,8-200 MARINE Smart BMS</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">12,8 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">200 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">2560 Вт·ч</span></li>
+            <li><span class="spec-label">Защита</span><span class="spec-value">IP68</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">22 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">67 600 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lfp-51.2-100m.jpg" alt="LFP 51,2-100M Rack">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Rack 19"</span>
+          <h3 class="card-title">LFP 51,2-100M (BMS 100A)</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">51,2 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">100 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">5120 Вт·ч</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">440×480×133 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">40 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">135 900 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lfp-51.2-100ma.jpg" alt="LFP 51,2-100MA Amphenol">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Rack 19" · Amphenol</span>
+          <h3 class="card-title">LFP 51,2-100MA</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">51,2 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">100 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">5120 Вт·ч</span></li>
+            <li><span class="spec-label">Клеммы</span><span class="spec-value">Amphenol</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">40 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">142 400 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lfp-51.2-200m.jpg" alt="LFP 51,2-200M Rack">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Rack 19"</span>
+          <h3 class="card-title">LFP 51,2-200M (BMS 100A)</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">51,2 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">200 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">10240 Вт·ч</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">440×583×228 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">80 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">249 200 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lfp-25.6-150w.jpg" alt="LFP 25,6-150W Wall Mount">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Wall Mounted</span>
+          <h3 class="card-title">LFP 25,6-150W (BMS 150A)</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">25,6 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">150 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">3840 Вт·ч</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">445×420×147 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">28,5 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">123 400 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lfp-51.2-100w.jpg" alt="LFP 51,2-100W Wall Mount">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Wall Mounted</span>
+          <h3 class="card-title">LFP 51,2-100W (BMS 100A)</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">51,2 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">100 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">5120 Вт·ч</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">445×570×150 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">45 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">145 300 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lfp-51.2-130pw.jpg" alt="LFP 51,2-130PW">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Wall Mounted</span>
+          <h3 class="card-title">LFP 51,2-130PW (BMS 130A)</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">51,2 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">130 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">6502 Вт·ч</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">460×780×120 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">55 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">173 000 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lfp-51.2-150w.jpg" alt="LFP 51,2-150W">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Wall Mounted</span>
+          <h3 class="card-title">LFP 51,2-150W (BMS 150A)</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">51,2 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">150 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">7680 Вт·ч</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">400×600×234 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">60 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">217 200 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/vektor-lfp-51.2-100rm.jpg" alt="VEKTOR ENERGY LFP 51,2-100RM">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">VEKTOR · Rack 19"</span>
+          <h3 class="card-title">VEKTOR ENERGY LFP 51.2-100RM</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">51,2 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">100 Ач</span></li>
+            <li><span class="spec-label">Дисплей</span><span class="spec-value">3,2"</span></li>
+            <li><span class="spec-label">Ячейки</span><span class="spec-value">EVE Grade A</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">45 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">135 900 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/vektor-lfp-51.2-200rm.jpg" alt="VEKTOR ENERGY LFP 51,2-200RM">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">VEKTOR · Rack 19"</span>
+          <h3 class="card-title">VEKTOR ENERGY LFP 51.2-200RM</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">51,2 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">200 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">10240 Вт·ч</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">442×600×255 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">88 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">249 200 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/vektor-lfp-51.2-100rw.jpg" alt="VEKTOR ENERGY LFP 51,2-100RW">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">VEKTOR · Wall Mount</span>
+          <h3 class="card-title">VEKTOR ENERGY LFP 51.2-100RW</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">51,2 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">100 Ач</span></li>
+            <li><span class="spec-label">Дисплей</span><span class="spec-value">7" сенсорный</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">650×384×142 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">45 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">149 000 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/vektor-lfp-51.2-200rw.jpg" alt="VEKTOR ENERGY LFP 51,2-200RW">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">VEKTOR · Wall Mount</span>
+          <h3 class="card-title">VEKTOR ENERGY LFP 51.2-200RW</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">51,2 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">200 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">10240 Вт·ч</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">655×450×265 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">88 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">262 000 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/vektor-lfp-51.2-324rw.jpg" alt="VEKTOR ENERGY LFP 51,2-324RW">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">VEKTOR · Wall Mount</span>
+          <h3 class="card-title">VEKTOR ENERGY LFP 51.2-324RW</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">51,2 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">324 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">16588 Вт·ч</span></li>
+            <li><span class="spec-label">BMS</span><span class="spec-value">200 А</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">120 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">373 000 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lp15-12100.jpg" alt="MUST LP15-12100">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">MUST · LFP</span>
+          <h3 class="card-title">MUST LP15-12100</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">12,8 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">100 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">1280 Вт·ч</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">218×339×185 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">12 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">29 000 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lp16-48100.jpg" alt="MUST LP16-48100 Wall Mount">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">MUST · Wall Mount</span>
+          <h3 class="card-title">MUST LP16-48100</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">51,2 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">100 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">5120 Вт·ч</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">177×442×625 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">45 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">122 300 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/lp16-48200.jpg" alt="MUST LP16-48200 Wall Mount">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">MUST · Wall Mount</span>
+          <h3 class="card-title">MUST LP16-48200</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">51,2 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">200 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">10240 Вт·ч</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">250×442×686 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">80 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">215 200 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/batteries/vektor-hv-614-220.jpg" alt="VEKTOR HIGH VOLTAGE 614-220">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4h-2V2h-4v2H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V8h4v2z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">VEKTOR · High Voltage</span>
+          <h3 class="card-title">VEKTOR HIGH VOLTAGE LFP 614-220</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Напряжение</span><span class="spec-value">614 В</span></li>
+            <li><span class="spec-label">Ёмкость</span><span class="spec-value">220 Ач</span></li>
+            <li><span class="spec-label">Энергоёмкость</span><span class="spec-value">135 кВт·ч</span></li>
+            <li><span class="spec-label">BMS</span><span class="spec-value">PACEEX 150 А</span></li>
+            <li><span class="spec-label">Особенности</span><span class="spec-value">Активное охлаждение</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">3 248 000 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-order">Под заказ</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- СОЛНЕЧНЫЕ ПАНЕЛИ -->
+<section class="section" id="panels" style="background:#fff;">
+  <div class="container">
+    <div class="section-header">
+      <h2>Солнечные модули</h2>
+      <p>Монокристаллические панели N-type TOPCon от Tongwei. Высокий КПД и долгий срок службы.</p>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/panels/tongwei-470.jpg" alt="Tongwei TWMNH-48HW470">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h16v18H4V3zm2 2v4h12V5H6zm0 6v4h5v-4H6zm7 0v4h5v-4h-5zm-7 6v4h5v-4H6zm7 0v4h5v-4h-5z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Tongwei · TOPCon</span>
+          <h3 class="card-title">Tongwei TNC2.0 TWMNH-48HW470</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">470 Вт</span></li>
+            <li><span class="spec-label">КПД</span><span class="spec-value">23,5%</span></li>
+            <li><span class="spec-label">Voc</span><span class="spec-value">36,55 В</span></li>
+            <li><span class="spec-label">Габариты</span><span class="spec-value">1762×1134×30 мм</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">23,7 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">14 350 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">Конец сентября</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/panels/tongwei-650.jpg" alt="Tongwei TWMNH-66QD650">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h16v18H4V3zm2 2v4h12V5H6zm0 6v4h5v-4H6zm7 0v4h5v-4h-5zm-7 6v4h5v-4H6zm7 0v4h5v-4h-5z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Tongwei · TOPCon Bifacial</span>
+          <h3 class="card-title">Tongwei TNC3.0 TWMNH-66QD650</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">650 Вт</span></li>
+            <li><span class="spec-label">КПД</span><span class="spec-value">24,1%</span></li>
+            <li><span class="spec-label">Voc</span><span class="spec-value">50,19 В</span></li>
+            <li><span class="spec-label">Тип</span><span class="spec-value">Двусторонняя</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">32,7 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">19 400 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ГИБРИДНЫЕ ИНВЕРТОРЫ -->
+<section class="section" id="hybrid">
+  <div class="container">
+    <div class="section-header">
+      <h2>Гибридные инверторы</h2>
+      <p>Deye и MUST — работают с АКБ, солнечными панелями и сетью. Отдача в сеть, подмешивание, параллельное подключение.</p>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-3k-sg04.jpg" alt="Deye SUN-3K-SG04LP1">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Гибридный</span>
+          <h3 class="card-title">Deye SUN-3K-SG04LP1-24-EU-SM1</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">3000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">1</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">24 В</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">1</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">17,6 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">114 000 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-5k-sg05.jpg" alt="Deye SUN-5K-SG05LP1">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Гибридный</span>
+          <h3 class="card-title">Deye SUN-5K-SG05LP1-EU-SM2-P</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">5000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">1</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">48 В</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">2</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">26,8 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">147 900 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">В пути</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-6k-sg05.jpg" alt="Deye SUN-6K-SG05LP1">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Гибридный</span>
+          <h3 class="card-title">Deye SUN-6K-SG05LP1-EU-SM2-P</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">6000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">1</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">48 В</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">2</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">26,8 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">153 500 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">В пути</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-8k-sg05.jpg" alt="Deye SUN-8K-SG05LP1">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Гибридный</span>
+          <h3 class="card-title">Deye SUN-8K-SG05LP1-EU-SM2-P</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">8000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">1</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">48 В</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">2</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">26,8 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">233 700 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">В пути</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-12k-sg02.jpg" alt="Deye SUN-12K-SG02LP1">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Гибридный</span>
+          <h3 class="card-title">Deye SUN-12K-SG02LP1-EU-AM3-P</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">12000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">1</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">48 В</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">35,6 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">320 800 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">В пути</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-16k-sg01.jpg" alt="Deye SUN-16K-SG01LP1">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Гибридный</span>
+          <h3 class="card-title">Deye SUN-16K-SG01LP1-EU</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">16000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">1</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">48 В</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">52 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">404 400 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">В пути</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-12k-sg05.jpg" alt="Deye SUN-12K-SG05LP3">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Гибридный 3Ф</span>
+          <h3 class="card-title">Deye SUN-12K-SG05LP3-EU-SM2</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">12000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">48 В</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">2</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">35,2 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">318 500 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">В пути</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-15k-sg05.jpg" alt="Deye SUN-15K-SG05LP3">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Гибридный 3Ф</span>
+          <h3 class="card-title">Deye SUN-15K-SG05LP3-EU-SM2</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">15000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">48 В</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">2</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">51,9 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">366 900 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">В пути</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-20k-sg05.jpg" alt="Deye SUN-20K-SG05LP3">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Гибридный 3Ф</span>
+          <h3 class="card-title">Deye SUN-20K-SG05LP3-EU-SM2</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">20000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">48 В</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">2</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">51,9 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">474 600 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">В пути</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-25k-sg01.jpg" alt="Deye SUN-25K-SG01HP3">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Высоковольтный 3Ф</span>
+          <h3 class="card-title">Deye SUN-25K-SG01HP3-EU-AM2</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">25000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">160–700 В</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">2</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">30,5 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">431 200 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">В пути</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-50k-sg01.jpg" alt="Deye SUN-50K-SG01HP3">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Высоковольтный 3Ф</span>
+          <h3 class="card-title">Deye SUN-50K-SG01HP3-EU-BM4</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">50000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">160–800 В</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">4</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">80 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">876 500 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">В пути</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-80k-sg02.jpg" alt="Deye SUN-80K-SG02HP3">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Высоковольтный 3Ф</span>
+          <h3 class="card-title">Deye SUN-80K-SG02HP3-EU-EM6</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">80000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">160–1000 В</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">6</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">105 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">1 255 400 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">В пути</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-100k.jpg" alt="Deye SUN-100K-SG02HP3">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Высоковольтный 3Ф</span>
+          <h3 class="card-title">Deye SUN-100K-SG02HP3-EU-GM10</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">100000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">160–1000 В</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">10</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">162 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">1 494 900 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-order">Под заказ</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-125k.jpg" alt="Deye SUN-125K-SG02HP3">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Высоковольтный 3Ф</span>
+          <h3 class="card-title">Deye SUN-125K-SG02HP3-EU-GM10</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">125000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">160–1000 В</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">10</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">162 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">1 681 700 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-order">Под заказ</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/must-ph19-6048.jpg" alt="MUST PH19-6048 EXP II">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">MUST · Гибридный</span>
+          <h3 class="card-title">MUST PH19-6048 EXP II</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">6000 Вт</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">48 В</span></li>
+            <li><span class="spec-label">PV</span><span class="spec-value">7800 Вт</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">32 А</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">12,9 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">73 100 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/must-ph19-10048.jpg" alt="MUST PH19-10048 EXP">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">MUST · Гибридный</span>
+          <h3 class="card-title">MUST PH19-10048 EXP</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">10000 Вт</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">48 В</span></li>
+            <li><span class="spec-label">PV</span><span class="spec-value">10000 Вт</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">2×27 А</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">18 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">96 100 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/must-ph11-15kl3.jpg" alt="MUST PH11-15KL3-EU">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">MUST · Гибридный 3Ф</span>
+          <h3 class="card-title">MUST PH11-15KL3-EU</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">15000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">АКБ</span><span class="spec-value">48 В</span></li>
+            <li><span class="spec-label">PV</span><span class="spec-value">19500 Вт</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">38 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">300 300 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- СЕТЕВЫЕ ИНВЕРТОРЫ -->
+<section class="section" id="grid" style="background:#fff;">
+  <div class="container">
+    <div class="section-header">
+      <h2>Сетевые инверторы</h2>
+      <p>Deye серии G — работают без АКБ, только с солнечными панелями и сетью. Максимальный КПД.</p>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-3k-g04.jpg" alt="Deye SUN-3K-G04P1">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Сетевой</span>
+          <h3 class="card-title">Deye SUN-3K-G04P1-EU-AM1</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">3000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">1</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">1</span></li>
+            <li><span class="spec-label">PV</span><span class="spec-value">3900 Вт</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">6,4 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">38 100 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-5k-g05.jpg" alt="Deye SUN-5K-G05P1">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Сетевой</span>
+          <h3 class="card-title">Deye SUN-5K-G05P1-EU-AM2</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">5000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">1</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">2</span></li>
+            <li><span class="spec-label">PV</span><span class="spec-value">7500 Вт</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">7,7 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">63 300 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">В пути</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-10k-g06.jpg" alt="Deye SUN-10K-G06P3">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Сетевой 3Ф</span>
+          <h3 class="card-title">Deye SUN-10K-G06P3-EU-BM2-P1</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">10000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">2</span></li>
+            <li><span class="spec-label">PV</span><span class="spec-value">15000 Вт</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">11,5 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">78 900 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">В пути</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-15k-g06.jpg" alt="Deye SUN-15K-G06P3">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Сетевой 3Ф</span>
+          <h3 class="card-title">Deye SUN-15K-G06P3-EU-BM2-P1</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">15000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">2</span></li>
+            <li><span class="spec-label">PV</span><span class="spec-value">22500 Вт</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">12 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">110 600 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">В пути</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-20k-g05.jpg" alt="Deye SUN-20K-G05">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Сетевой 3Ф</span>
+          <h3 class="card-title">Deye SUN-20K-G05</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">20000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">2</span></li>
+            <li><span class="spec-label">PV</span><span class="spec-value">26000 Вт</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">20 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">120 400 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">В пути</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-25k-g05.jpg" alt="Deye SUN-25K-G05">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Сетевой 3Ф</span>
+          <h3 class="card-title">Deye SUN-25K-G05</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">25000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">2</span></li>
+            <li><span class="spec-label">PV</span><span class="spec-value">32500 Вт</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">20 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">132 700 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-30k-g04.jpg" alt="Deye SUN-30K-G04">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Сетевой 3Ф</span>
+          <h3 class="card-title">Deye SUN-30K-G04</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">30000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">2</span></li>
+            <li><span class="spec-label">PV</span><span class="spec-value">45000 Вт</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">28,7 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">165 800 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-transit">В пути</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-50k-g04.jpg" alt="Deye SUN-50K-G04">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Сетевой 3Ф</span>
+          <h3 class="card-title">Deye SUN-50K-G04</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">50000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">4</span></li>
+            <li><span class="spec-label">PV</span><span class="spec-value">65000 Вт</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">39 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">265 500 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-100k-g03.jpg" alt="Deye SUN-100K-G03">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Сетевой 3Ф</span>
+          <h3 class="card-title">Deye SUN-100K-G03</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">100000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">6</span></li>
+            <li><span class="spec-label">PV</span><span class="spec-value">150000 Вт</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">81 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">453 300 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/img/inverters/deye-130k-g01.jpg" alt="Deye SUN-130K-G01P3">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v18H5V3zm2 2v3h10V5H7zm0 5v3h10v-3H7zm0 5v3h10v-3H7z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <span class="card-cat">Deye · Сетевой 3Ф</span>
+          <h3 class="card-title">Deye SUN-130K-G01P3-EU-AM8</h3>
+          <ul class="card-specs">
+            <li><span class="spec-label">Мощность</span><span class="spec-value">130000 Вт</span></li>
+            <li><span class="spec-label">Фазы</span><span class="spec-value">3</span></li>
+            <li><span class="spec-label">MPPT</span><span class="spec-value">8</span></li>
+            <li><span class="spec-label">PV</span><span class="spec-value">195000 Вт</span></li>
+            <li><span class="spec-label">Вес</span><span class="spec-value">103 кг</span></li>
+          </ul>
+          <div class="card-footer">
+            <div class="card-price">604 100 ₽<small>МРЦ</small></div>
+            <span class="card-badge badge-instock">В наличии</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ПРИМЕРЫ УСТАНОВКИ -->
+<section class="section houses" id="houses">
+  <div class="container">
+    <div class="section-header">
+      <h2>Примеры установки</h2>
+      <p>Реальные проекты солнечных электростанций для загородных домов</p>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="grid">
+
+      <div class="card house-card">
+        <div class="card-img">
+          <img src="assets/img/houses/house-1.jpg" alt="Загородный дом с солнечными панелями">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.8l6 5.4V18h-2v-6H8v6H6v-6.8l6-5.4z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Автономная СЭС 10 кВт·ч</h3>
+          <p style="color:#64748b; font-size:0.9rem;">Солнечные панели 6 кВт + накопитель LFP 51,2-200 + гибридный инвертор Deye 8K. Полное резервирование дома.</p>
+        </div>
+      </div>
+
+      <div class="card house-card">
+        <div class="card-img">
+          <img src="assets/img/houses/house-2.jpg" alt="Коттедж с солнечными панелями на крыше">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.8l6 5.4V18h-2v-6H8v6H6v-6.8l6-5.4z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Гибридная СЭС 15 кВт</h3>
+          <p style="color:#64748b; font-size:0.9rem;">Панели 10 кВт + накопитель 15 кВт·ч + инвертор Deye 12K. Работа с сетью и продажа излишков.</p>
+        </div>
+      </div>
+
+      <div class="card house-card">
+        <div class="card-img">
+          <img src="assets/img/houses/house-3.jpg" alt="Современный дом с солнечными панелями">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.8l6 5.4V18h-2v-6H8v6H6v-6.8l6-5.4z"/></svg>
+          <span class="no-photo-note">фото позже</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Сетевая СЭС 30 кВт</h3>
+          <p style="color:#64748b; font-size:0.9rem;">Панели Tongwei 650 Вт × 46 шт + сетевой инвертор Deye 30K. Продажа электроэнергии по «зелёному» тарифу.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-brand">VEKTOR ENERGY</div>
+  <p>Солнечная энергетика для дома и бизнеса</p>
+  <p class="footer-note">© 2026 VEKTOR ENERGY. Все права защищены.</p>
+</footer>
+
+<script>
+// Простой обработчик: добавляет класс .has-photo, когда картинка загружена
+document.querySelectorAll('.card-img img').forEach(function(img) {
+  img.addEventListener('load', function() {
+    img.parentElement.classList.add('has-photo');
+  });
+  img.addEventListener('error', function() {
+    img.parentElement.classList.remove('has-photo');
+  });
+});
+</script>
+
+</body>
+</html>
