@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Массив солнечных панелей на опорах</title>
+  <desc id="desc">Иллюстрация солнечных панелей, установленных под наклоном на металлических опорах, на фоне неба и солнца.</desc>
+
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8bd7f4"/>
+      <stop offset="62%" stop-color="#d9f3fb"/>
+      <stop offset="100%" stop-color="#fff5d7"/>
+    </linearGradient>
+
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9fcf75"/>
+      <stop offset="100%" stop-color="#4d8d55"/>
+    </linearGradient>
+
+    <radialGradient id="sunGlow">
+      <stop offset="0%" stop-color="#fffbd0" stop-opacity="1"/>
+      <stop offset="48%" stop-color="#ffe88a" stop-opacity=".9"/>
+      <stop offset="100%" stop-color="#ffd35c" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#173f70"/>
+      <stop offset="38%" stop-color="#12608e"/>
+      <stop offset="70%" stop-color="#1d78a1"/>
+      <stop offset="100%" stop-color="#0d365f"/>
+    </linearGradient>
+
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#586b75"/>
+      <stop offset="45%" stop-color="#d4e0df"/>
+      <stop offset="65%" stop-color="#81939a"/>
+      <stop offset="100%" stop-color="#3c4e59"/>
+    </linearGradient>
+
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+      <feOffset dx="0" dy="12" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope=".28"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <clipPath id="arrayClip">
+      <polygon points="128,430 888,330 888,210 128,310"/>
+    </clipPath>
+  </defs>
+
+  <!-- Небо -->
+  <rect width="1200" height="800" fill="url(#sky)"/>
+
+  <!-- Солнечное свечение -->
+  <circle cx="925" cy="165" r="190" fill="url(#sunGlow)" filter="url(#blur)"/>
+  <circle cx="925" cy="165" r="66" fill="#ffe178"/>
+  <circle cx="925" cy="165" r="52" fill="#fff2a5"/>
+
+  <!-- Лучи солнца -->
+  <g stroke="#f7cf61" stroke-width="7" stroke-linecap="round" opacity=".7">
+    <line x1="925" y1="55" x2="925" y2="20"/>
+    <line x1="925" y1="275" x2="925" y2="310"/>
+    <line x1="815" y1="165" x2="780" y2="165"/>
+    <line x1="1035" y1="165" x2="1070" y2="165"/>
+    <line x1="847" y1="87" x2="822" y2="62"/>
+    <line x1="1003" y1="243" x2="1028" y2="268"/>
+    <line x1="1003" y1="87" x2="1028" y2="62"/>
+    <line x1="847" y1="243" x2="822" y2="268"/>
+  </g>
+
+  <!-- Далёкие облака -->
+  <g fill="#ffffff" opacity=".48">
+    <path d="M75 170c18-30 61-28 77 4 13-19 47-17 57 9h48c28 0 43 37 16 51H80c-31 0-36-43-5-50z"/>
+    <path d="M345 112c15-25 49-24 62 3 14-17 43-13 51 12h39c25 0 34 32 11 45H350c-27 0-30-37-5-43z"/>
+    <path d="M1015 350c15-26 51-25 64 4 12-17 42-13 51 12h36c25 0 35 34 10 47h-161c-27 0-31-38 0-45z"/>
+  </g>
+
+  <!-- Дальний пейзаж -->
+  <path d="M0 505c130-65 222-42 330-5 105 36 181-32 288-24 113 9 158 58 267 13 111-45 207-33 315 20v125H0z"
+        fill="#8fbe79" opacity=".65"/>
+  <path d="M0 570c145-58 248-31 365 6 97 31 173-29 269-19 126 13 164 55 270 15 122-47 202-17 296 25v150H0z"
+        fill="url(#ground)"/>
+
+  <!-- Тени от конструкции -->
+  <g fill="#315f4d" opacity=".28" filter="url(#blur)">
+    <ellipse cx="510" cy="626" rx="390" ry="31"/>
+    <ellipse cx="785" cy="673" rx="230" ry="22"/>
+  </g>
+
+  <!-- Опоры заднего ряда -->
+  <g stroke="url(#metal)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M205 296L176 610" stroke-width="14"/>
+    <path d="M395 271L374 600" stroke-width="14"/>
+    <path d="M595 245L585 592" stroke-width="14"/>
+    <path d="M795 219L794 584" stroke-width="14"/>
+  </g>
+
+  <!-- Диагональные распорки -->
+  <g fill="none" stroke="#526871" stroke-width="9" stroke-linecap="round">
+    <path d="M176 610L395 405"/>
+    <path d="M374 600L595 365"/>
+    <path d="M585 592L795 323"/>
+    <path d="M794 584L892 454"/>
+  </g>
+
+  <!-- Нижняя опорная балка -->
+  <path d="M147 593L895 481" fill="none" stroke="#354b55" stroke-width="18" stroke-linecap="round"/>
+  <path d="M147 588L895 476" fill="none" stroke="#bac9c9" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Панельный массив -->
+  <g filter="url(#shadow)">
+    <polygon points="128,430 888,330 888,210 128,310"
+             fill="#102e51" stroke="#263f50" stroke-width="12" stroke-linejoin="round"/>
+
+    <!-- Ячейки и сетка -->
+    <g clip-path="url(#arrayClip)">
+      <rect x="110" y="190" width="800" height="270" fill="url(#panel)"/>
+
+      <!-- вертикальные секции в перспективе -->
+      <g fill="none" stroke="#72b7d0" stroke-width="3" opacity=".78">
+        <line x1="223" y1="298" x2="223" y2="418"/>
+        <line x1="318" y1="286" x2="318" y2="405"/>
+        <line x1="413" y1="273" x2="413" y2="393"/>
+        <line x1="508" y1="261" x2="508" y2="380"/>
+        <line x1="603" y1="248" x2="603" y2="368"/>
+        <line x1="698" y1="236" x2="698" y2="355"/>
+        <line x1="793" y1="223" x2="793" y2="343"/>
+        <line x1="888" y1="210" x2="888" y2="330"/>
+      </g>
+
+      <!-- горизонтальные ряды -->
+      <g fill="none" stroke="#74bad3" stroke-width="3" opacity=".8">
+        <path d="M116 350L900 251"/>
+        <path d="M112 390L900 291"/>
+      </g>
+
+      <!-- блики на стекле -->
+      <path d="M148 319L556 266L455 390L145 430Z" fill="#bceeff" opacity=".12"/>
+      <path d="M620 238L851 208L735 342L596 360Z" fill="#d9f7ff" opacity=".1"/>
+    </g>
+
+    <!-- Рамка массива -->
+    <polygon points="128,430 888,330 888,210 128,310"
+             fill="none" stroke="#203b4d" stroke-width="12" stroke-linejoin="round"/>
+    <path d="M128 310L888 210M128 430L888 330" fill="none" stroke="#78929a" stroke-width="4"/>
+  </g>
+
+  <!-- Передние стойки поверх конструкции -->
+  <g stroke="url(#metal)" stroke-linecap="round">
+    <path d="M250 418L232 610" stroke-width="13"/>
+    <path d="M490 386L482 600" stroke-width="13"/>
+    <path d="M730 354L733 588" stroke-width="13"/>
+  </g>
+
+  <!-- Основания опор -->
+  <g fill="#40545b">
+    <ellipse cx="176" cy="615" rx="31" ry="8"/>
+    <ellipse cx="232" cy="616" rx="28" ry="8"/>
+    <ellipse cx="374" cy="606" rx="29" ry="8"/>
+    <ellipse cx="482" cy="606" rx="27" ry="8"/>
+    <ellipse cx="585" cy="598" rx="28" ry="8"/>
+    <ellipse cx="733" cy="594" rx="27" ry="8"/>
+    <ellipse cx="794" cy="589" rx="28" ry="8"/>
+  </g>
+
+  <!-- Небольшие растения на переднем плане -->
+  <g fill="none" stroke="#397451" stroke-width="5" stroke-linecap="round">
+    <path d="M88 719c3-31 3-49 0-73M89 690l-23-20M90 676l21-24"/>
+    <path d="M1065 735c-2-35-2-53 2-78M1066 693l-24-22M1065 677l24-28"/>
+    <path d="M1000 752c-1-29 0-46 4-66M1002 714l-20-18M1002 699l22-25"/>
+  </g>
+
+  <!-- Передний травяной слой -->
+  <path d="M0 755c105-19 173 4 273-10 120-17 209 14 313 1 125-16 210-5 313 3 119 9 210-22 301 2v49H0z"
+        fill="#3f7d50" opacity=".75"/>
+</svg>

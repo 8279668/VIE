@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Галерея — Солнечные панели и литиевые батареи</title>
+  <meta name="description" content="Галерея с фотографиями солнечных панелей и литиевых батарей с подписями и SEO-текстами.">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f7fa;
+      color: #222;
+      line-height: 1.5;
+      padding: 20px;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      color: #1a3a5c;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #1a3a5c;
+      border-bottom: 3px solid #f0b429;
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 30px 0;
+    }
+
+    figure {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    figure:hover {
+      transform: translateY(-4px);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    figcaption {
+      padding: 14px 16px;
+      font-size: 1rem;
+      color: #333;
+      background-color: #ffffff;
+      border-top: 1px solid #eaeaea;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Галерея оборудования</h1>
+
+    <section aria-labelledby="solar-heading">
+      <h2 id="solar-heading">Солнечные панели</h2>
+      <div class="gallery">
+        <figure>
+          <img
+            src="https://placehold.co/600x400?text=Solar+Panel"
+            alt="Современные солнечные панели, установленные на крыше частного дома под ярким солнечным светом"
+          >
+          <figcaption>Современные солнечные панели на крыше дома</figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="https://placehold.co/600x400?text=Mono+Perc"
+            alt="Монокристаллические солнечные панели PERC, установленные под открытым небом в солнечный день"
+          >
+          <figcaption>Монокристаллические панели PERC</figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="https://placehold.co/600x400?text=Solar+Park"
+            alt="Солнечная электростанция с рядами панелей, расположенная на открытой полевой местности"
+          >
+          <figcaption>Солнечная электростанция на открытой местности</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section aria-labelledby="battery-heading">
+      <h2 id="battery-heading">Литиевые батареи</h2>
+      <div class="gallery">
+        <figure>
+          <img
+            src="https://placehold.co/600x400?text=Lithium+Battery"
+            alt="Литиевая батарея для хранения электроэнергии в прочном корпусе синего цвета"
+          >
+          <figcaption>Литиевая батарея для домашнего накопителя энергии</figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="https://placehold.co/600x400?text=Battery+Wall"
+            alt="Настенная литиевая батарея с индикатором заряда, размещённая в жилом помещении"
+          >
+          <figcaption>Настенный накопитель на литиевых ячейках</figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="https://placehold.co/600x400?text=Battery+Pack"
+            alt="Промышленный литиевый аккумуляторный модуль, установленный в стеллажной системе"
+          >
+          <figcaption>Промышленный литиевый аккумуляторный модуль</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
