@@ -178,15 +178,22 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  position: relative;
+  z-index: 1;
 }
 .card-img .ph-icon {
   width: 80px;
   height: 80px;
   opacity: 0.35;
   color: #1e6091;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
 }
 .card-img.has-photo .ph-icon { display: none; }
-.card-img:not(.has-photo) img { display: none; }
+
 
 .card-body {
   padding: 18px 18px 20px;
@@ -1635,12 +1642,17 @@ body {
 <script>
 // Простой обработчик: добавляет класс .has-photo, когда картинка загружена
 document.querySelectorAll('.card-img img').forEach(function(img) {
-  img.addEventListener('load', function() {
-    img.parentElement.classList.add('has-photo');
-  });
-  img.addEventListener('error', function() {
+  function onLoad() { img.parentElement.classList.add('has-photo'); }
+  function onError() {
     img.parentElement.classList.remove('has-photo');
-  });
+    img.style.display = 'none';
+  }
+  if (img.complete) {
+    if (img.naturalWidth > 0) { onLoad(); } else { onError(); }
+  } else {
+    img.addEventListener('load', onLoad);
+    img.addEventListener('error', onError);
+  }
 });
 </script>
 
