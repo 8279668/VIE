@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Литиевая батарея Li-ion</title>
+  <desc id="desc">Иллюстрация литиевой аккумуляторной батареи с клеммами и индикатором заряда</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16283d"/>
+      <stop offset="1" stop-color="#091522"/>
+    </linearGradient>
+    <linearGradient id="case" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#334c65"/>
+      <stop offset=".5" stop-color="#1e344b"/>
+      <stop offset="1" stop-color="#132639"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#253f57"/>
+      <stop offset="1" stop-color="#102539"/>
+    </linearGradient>
+    <linearGradient id="terminal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e9f5fb"/>
+      <stop offset=".35" stop-color="#91b8c9"/>
+      <stop offset=".7" stop-color="#527c91"/>
+      <stop offset="1" stop-color="#d4e8ee"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffb52e"/>
+      <stop offset=".5" stop-color="#ff7b22"/>
+      <stop offset="1" stop-color="#e8521b"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b6ff7a"/>
+      <stop offset=".45" stop-color="#43df72"/>
+      <stop offset="1" stop-color="#159d65"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12"/>
+      <feOffset dy="14"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope=".35"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#6f9ab1" stroke-opacity=".08"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" rx="28" fill="url(#bg)"/>
+  <rect x="20" y="20" width="760" height="460" rx="22" fill="url(#grid)"/>
+
+  <ellipse cx="400" cy="408" rx="287" ry="34" fill="#030a12" opacity=".7" filter="url(#shadow)"/>
+
+  <g filter="url(#shadow)">
+    <!-- rear edge -->
+    <path d="M145 160L178 130H661L696 160V347L661 377H178L145 347Z"
+          fill="#0b1b2b" stroke="#0a1420" stroke-width="5"/>
+
+    <!-- battery body -->
+    <rect x="112" y="146" width="576" height="225" rx="24"
+          fill="url(#case)" stroke="#6c91a5" stroke-width="4"/>
+    <rect x="125" y="159" width="550" height="199" rx="16"
+          fill="none" stroke="#8fb4c4" stroke-opacity=".22" stroke-width="2"/>
+
+    <!-- top ridge -->
+    <path d="M139 146H661" stroke="#b6d1da" stroke-opacity=".28" stroke-width="4"/>
+    <path d="M139 359H661" stroke="#061320" stroke-opacity=".7" stroke-width="5"/>
+
+    <!-- terminals -->
+    <g>
+      <rect x="210" y="93" width="108" height="58" rx="12" fill="#101f2c" stroke="#6f91a1" stroke-width="3"/>
+      <rect x="225" y="73" width="78" height="67" rx="10" fill="url(#terminal)" stroke="#d8edf2" stroke-width="3"/>
+      <rect x="239" y="84" width="50" height="43" rx="6" fill="#779bab" opacity=".45"/>
+      <path d="M238 91H289" stroke="#fff" stroke-opacity=".65" stroke-width="4" stroke-linecap="round"/>
+      <text x="264" y="113" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#27485b">+</text>
+
+      <rect x="482" y="93" width="108" height="58" rx="12" fill="#101f2c" stroke="#6f91a1" stroke-width="3"/>
+      <rect x="497" y="73" width="78" height="67" rx="10" fill="url(#terminal)" stroke="#d8edf2" stroke-width="3"/>
+      <rect x="511" y="84" width="50" height="43" rx="6" fill="#779bab" opacity=".45"/>
+      <path d="M510 91H561" stroke="#fff" stroke-opacity=".65" stroke-width="4" stroke-linecap="round"/>
+      <text x="536" y="113" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#27485b">−</text>
+    </g>
+
+    <!-- orange accent stripe -->
+    <path d="M112 206H688V230H112Z" fill="url(#orange)"/>
+    <path d="M112 206H688" stroke="#ffd36a" stroke-opacity=".75" stroke-width="2"/>
+    <path d="M112 230H688" stroke="#9b361a" stroke-opacity=".7" stroke-width="2"/>
+
+    <!-- left warning mark -->
+    <g transform="translate(158 255)">
+      <circle cx="34" cy="34" r="32" fill="#102335" stroke="#7798a8" stroke-width="3"/>
+      <path d="M34 12L58 54H10Z" fill="none" stroke="#ffad35" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M34 26V39" stroke="#ffad35" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="34" cy="47" r="2.8" fill="#ffad35"/>
+    </g>
+
+    <!-- charge indicator panel -->
+    <g>
+      <rect x="258" y="251" width="202" height="69" rx="14" fill="url(#panel)" stroke="#7d9dad" stroke-width="2"/>
+      <text x="278" y="275" font-family="Arial, sans-serif" font-size="13" letter-spacing="2" fill="#9ebac7">CHARGE</text>
+      <rect x="278" y="287" width="158" height="17" rx="8.5" fill="#091521" stroke="#56798c" stroke-width="2"/>
+      <rect x="283" y="292" width="39" height="7" rx="3.5" fill="url(#green)" filter="url(#glow)"/>
+      <rect x="328" y="292" width="39" height="7" rx="3.5" fill="url(#green)" filter="url(#glow)"/>
+      <rect x="373" y="292" width="39" height="7" rx="3.5" fill="url(#green)" filter="url(#glow)"/>
+      <rect x="418" y="292" width="13" height="7" rx="3.5" fill="#385264"/>
+    </g>
+
+    <!-- Li-ion label -->
+    <g transform="translate(493 249)">
+      <text x="0" y="43" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700" letter-spacing="1" fill="#edf8fb">Li</text>
+      <text x="52" y="43" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="300" fill="#f39a2d">-ion</text>
+      <path d="M3 55H154" stroke="#ff9a29" stroke-width="4" stroke-linecap="round"/>
+      <path d="M16 69H119" stroke="#78a3b5" stroke-opacity=".65" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <!-- small details -->
+    <circle cx="153" cy="181" r="5" fill="#8db1bf"/>
+    <circle cx="647" cy="181" r="5" fill="#8db1bf"/>
+    <path d="M147 335H653" stroke="#8cb0be" stroke-opacity=".2" stroke-width="2"/>
+  </g>
+
+  <!-- floating charge icon -->
+  <g transform="translate(681 375)">
+    <circle cx="30" cy="30" r="29" fill="#102638" stroke="#5f91a6" stroke-width="2"/>
+    <path d="M34 8L19 34H30L25 52L43 27H32Z" fill="#ffae31" stroke="#ffd978" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+</svg>
